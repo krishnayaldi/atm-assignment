@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1"></meta>
+<title>List of Atms</title>
+</head>
+<body>
+
+<div th:switch="${atmsByType}">
+	 <h2 th:case="null">No ATM present!</h2>
+ <div th:case="*">
+            <h2>Atms</h2>
+            <table>
+                <thead>
+                    <tr>
+                        <th>City</th>
+                        <th>Street</th>
+                        <th>Type</th>
+                        <th>Functionality</th>
+                    </tr>
+                </thead>
+                <tbody>
+                <tr th:each="atm : ${atmsByType}">
+                    <td th:text="${atm.address.city}"></td>
+                    <td th:text="${atm.address.street}"></td>
+                    <td th:text="${atm.type}"></td>
+                    <td th:text="${atm.functionality}"></td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
+
+</body>
+</html>
